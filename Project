@@ -1,33 +1,71 @@
-# InteractiveShapeClicker
-//Kelly Rice
-
-package shapemodificationproject;
+package shapeModification;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-public class PROJECTX {
+public class UnderTheSea extends JComponent implements MouseListener{
 	
-public PROJECTX() {
+	public UnderTheSea () {
+		
+		addMouseListener(this);
+	}
 	
-}
-
-
-public void paint(Graphics g) {
-	
-}
-
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Canvas");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500,500);
+		frame.add(new UnderTheSea());
 		
 		frame.setVisible(true);
 		frame.getContentPane().setBackground(Color.BLUE);
-		
-
+	}
+	
+	public void paintComponent(Graphics g) {
+		g.setColor(Color.ORANGE);
+		g.fillRect(250, 50, 80, 40);
+		g.setColor(Color.YELLOW);
+		g.fillRect(40, 300, 200, 200);
+		g.setColor(Color.PINK);
+		g.fillRect(0, 0, 500, 30);
+		g.setColor(Color.MAGENTA);
+		g.fillRect(0, 0, 500, 30);
+		g.setColor(Color.RED);
+		g.fillRect(0, 0, 500, 30);
 	}
 
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }
