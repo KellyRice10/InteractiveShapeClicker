@@ -1,5 +1,3 @@
-package shapeModification;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -8,9 +6,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-public class UnderTheSea extends JComponent implements MouseListener{
+public class SunsetTimes extends JComponent implements MouseListener{
 	
-	public UnderTheSea () {
+	boolean square = false;
+	int y = 0;
+	
+	public SunsetTimes () {
 		
 		addMouseListener(this);
 	}
@@ -19,23 +20,51 @@ public class UnderTheSea extends JComponent implements MouseListener{
 		JFrame frame = new JFrame("Canvas");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(500,500);
-		frame.add(new UnderTheSea());
+		frame.add(new SunsetTimes());
 		
 		frame.setVisible(true);
-		frame.getContentPane().setBackground(Color.BLUE);
+		frame.getContentPane().setBackground(Color.RED);
 	}
-	
+				//(x,y,width,height)
 	public void paintComponent(Graphics g) {
-		g.setColor(Color.ORANGE);
-		g.fillRect(250, 50, 80, 40);
-		g.setColor(Color.YELLOW);
-		g.fillRect(40, 300, 200, 200);
+		g.setColor(Color.CYAN);
+		g.fillRect(0, 0, 500, 100);
 		g.setColor(Color.PINK);
-		g.fillRect(0, 0, 500, 30);
+		g.fillRect(0, 50, 500, 100);
+		g.setColor(Color.YELLOW);
+		g.fillRect(0, 100, 500, 100);
+		g.setColor(Color.ORANGE);
+		g.fillRect(0, 150, 500, 100);
+		//sun start
+		g.setColor(Color.YELLOW);
+		g.fillRect(200, 100, 60, 120);
+		//sun finish
 		g.setColor(Color.MAGENTA);
-		g.fillRect(0, 0, 500, 30);
+		g.fillRect(0, 200, 500, 100);
 		g.setColor(Color.RED);
-		g.fillRect(0, 0, 500, 30);
+		g.fillRect(0, 250, 500, 100);
+		
+		if(square==true) {
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 0, 500, 500);
+			g.setColor(Color.GRAY);
+			g.fillRect(0, 0, 500, 100);
+			g.setColor(Color.GRAY);
+			g.fillRect(0, 50, 500, 100);
+			g.setColor(Color.DARK_GRAY);
+			g.fillRect(0, 100, 500, 100);
+			g.setColor(Color.DARK_GRAY);
+			g.fillRect(0, 150, 500, 100);
+			//sun start
+			g.setColor(Color.WHITE);
+			g.fillRect(200, 100, 60, 80);
+			//sun finish
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 200, 500, 100);
+			g.setColor(Color.BLACK);
+			g.fillRect(0, 250, 500, 100);
+		}
+		
 	}
 
 
@@ -43,6 +72,10 @@ public class UnderTheSea extends JComponent implements MouseListener{
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+		if(e.getButton() == MouseEvent.BUTTON1) {
+			square = true;
+		}
+		repaint();
 	}
 
 	@Override
